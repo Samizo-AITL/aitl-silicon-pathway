@@ -2,7 +2,7 @@
   aitl-silicon-pathway custom layout (GitHub-like, English only)
 */
 
-.aitl-silicon-pathway-root {
+.aitl-root {
   font-family: -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI",
     Helvetica, Arial, sans-serif;
   line-height: 1.6;
@@ -12,79 +12,79 @@
 }
 
 /* Main wrapper (similar to GitHub README width) */
-.aitl-silicon-pathway-root .wrapper,
-.aitl-silicon-pathway-root .main-container {
+.aitl-root .wrapper,
+.aitl-root .main-container {
   max-width: 980px;
   margin: 0 auto;
   padding: 1.5rem 1rem;
 }
 
 /* Page header */
-.aitl-silicon-pathway-root .page-header {
+.aitl-root .page-header {
   border-bottom: 1px solid #e1e4e8;
   background: #fafbfc;
 }
 
-.aitl-silicon-pathway-root .site-title {
+.aitl-root .site-title {
   font-size: 1.8rem;
   margin: 0;
 }
 
-.aitl-silicon-pathway-root .site-title a {
+.aitl-root .site-title a {
   text-decoration: none;
   color: #24292e;
 }
 
-.aitl-silicon-pathway-root .site-description {
+.aitl-root .site-description {
   margin: 0.4rem 0 0.2rem;
   color: #586069;
   font-size: 0.98rem;
 }
 
 /* Headings with subtle underline (GitHub style) */
-.aitl-silicon-pathway-root h1,
-.aitl-silicon-pathway-root h2,
-.aitl-silicon-pathway-root h3,
-.aitl-silicon-pathway-root h4 {
+.aitl-root h1,
+.aitl-root h2,
+.aitl-root h3,
+.aitl-root h4 {
   font-weight: 600;
   margin-top: 1.6rem;
   margin-bottom: 0.7rem;
 }
 
-.aitl-silicon-pathway-root h1,
-.aitl-silicon-pathway-root h2 {
+.aitl-root h1,
+.aitl-root h2 {
   border-bottom: 1px solid #eaecef;
   padding-bottom: 0.3rem;
 }
 
-.aitl-silicon-pathway-root h1 {
+.aitl-root h1 {
   font-size: 1.8rem;
 }
 
-.aitl-silicon-pathway-root h2 {
+.aitl-root h2 {
   font-size: 1.4rem;
 }
 
-.aitl-silicon-pathway-root h3 {
+.aitl-root h3 {
   font-size: 1.2rem;
 }
 
-.aitl-silicon-pathway-root p {
+.aitl-root p {
   margin-top: 0.4rem;
   margin-bottom: 0.6rem;
 }
 
 /* Links */
-.aitl-silicon-pathway-root a {
+.aitl-root a {
   color: #0366d6;
 }
 
-.aitl-silicon-pathway-root a:hover {
+.aitl-root a:hover {
   text-decoration: underline;
 }
 
 /* Footer */
-.aitl-silicon-pathway-root .page-footer {
+.aitl-root .page-footer {
   border-top: 1px solid #e1e4e8;
   margin-top: 2rem;
   padding: 1.2rem 0 1.5rem;
@@ -93,6 +93,6 @@
   background: #fafbfc;
 }
 
-.aitl-silicon-pathway-root .page-footer a {
+.aitl-root .page-footer a {
   color: #0366d6;
 }

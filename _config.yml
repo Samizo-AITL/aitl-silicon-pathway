@@ -1,9 +1,9 @@
-title: SemiDevKit
-description: Semiconductor device modeling and VLSI design educational toolkit
+title: aitl-silicon-pathway
+description: Educational project that explores the AITL control architecture
 lang: en
 
 url: "https://samizo-aitl.github.io"
-baseurl: "/SemiDevKit"   # Project site. If publishing at root, set this to "".
+baseurl: "/aitl-silicon-pathway"   # Project site. If publishing at root, set this to "".
 
 theme: minima
 

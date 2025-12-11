@@ -17,13 +17,11 @@
   <!-- Favicon -->
   <link rel="icon" href="{{ '/assets/img/favicon.png' | relative_url }}">
 
-  <!-- CSS (auto cache-bust) -->
+  <!-- CSS (cache-busted) -->
   <link rel="stylesheet" href="{{ '/assets/css/style.scss' | relative_url }}?v={{ site.time | date: '%s' }}">
   <link rel="stylesheet" href="{{ '/assets/css/aitl.scss' | relative_url }}?v={{ site.time | date: '%s' }}">
 
-  <!-- ================================ -->
-  <!-- 🔢 MathJax v3 (LaTeX Rendering) -->
-  <!-- ================================ -->
+  <!-- MathJax -->
   <script>
     window.MathJax = {
       tex: {
@@ -39,52 +37,43 @@
   </script>
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
-  <!-- ================================ -->
-  <!-- 📊 Mermaid (Flowcharts / Sequence etc.) -->
-  <!-- ================================ -->
+  <!-- Mermaid -->
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   <script>
     mermaid.initialize({ startOnLoad: true, theme: "default" });
   </script>
 
-  <!-- Extra head includes -->
   {%- include head.html -%}
 </head>
 
-<body class="semidevkit-root">
+<!-- ▼ 最重要修正：aitl-root を追加 -->
+<body class="aitl-root">
 
-  <!-- ================================ -->
-  <!-- 🔝 Header -->
-  <!-- ================================ -->
+  <!-- Header -->
   <header class="page-header">
     <div class="wrapper">
       <h1 class="site-title">
         <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
       </h1>
-
       {% if site.description %}
       <p class="site-description">{{ site.description }}</p>
       {% endif %}
     </div>
   </header>
 
-  <!-- ================================ -->
-  <!-- 📄 Main Content -->
-  <!-- ================================ -->
+  <!-- Main Content -->
   <main class="main-container wrapper">
     {{ content }}
   </main>
 
-  <!-- ================================ -->
-  <!-- ⚓ Footer -->
-  <!-- ================================ -->
+  <!-- Footer -->
   <footer class="page-footer">
     <div class="wrapper">
       <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}.</p>
       <p>
         Built with <a href="https://jekyllrb.com/">Jekyll</a>
         &nbsp;•&nbsp;
-        Theme optimized for AI × FPGA × Semiconductor projects.
+        AITL Silicon Pathway Custom Theme
       </p>
     </div>
   </footer>

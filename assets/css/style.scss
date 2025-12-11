@@ -5,15 +5,19 @@
    ======================================== */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.7;
+  line-height: 1.75;
   color: #24292e;
   background: #fafafa;
   font-size: 17px;
+  margin: 0;
 }
 
-.wrapper {
-  max-width: 900px;
-  padding: 1.5rem;
+/* main layout width */
+.wrapper,
+.main-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.8rem 1.2rem;
 }
 
 /* ========================================
@@ -31,38 +35,46 @@ body {
 }
 
 /* ========================================
-   GitHub-like tables
+   GitHub-like tables (強制上書き)
    ======================================== */
 table {
   width: 100%;
-  border-collapse: collapse;
-  margin: 1.5em 0;
-  border-spacing: 0;
-  overflow: hidden;
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+  margin: 1.6em 0;
+  border: 1px solid #d0d7de !important;
   border-radius: 6px;
+  overflow: hidden;
 }
 
-th,
-td {
-  border: 1px solid #d0d7de;
-  padding: 0.6em 0.8em;
+/* Force override minima table styles */
+table th,
+table td {
+  border: 1px solid #d0d7de !important;
+  padding: 0.65em 0.9em !important;
   vertical-align: top;
 }
 
-th {
-  background: #f6f8fa;
+table th {
+  background: #f6f8fa !important;
   font-weight: 600;
+  color: #24292f;
+}
+
+/* row stripes */
+table tr:nth-child(2n) {
+  background: #f6f8fa55;
 }
 
 /* ========================================
    Inline code
    ======================================== */
 code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono";
-  font-size: 0.95em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New";
+  font-size: 0.92em;
   background: #f6f8fa;
   border-radius: 4px;
-  padding: 0.15em 0.35em;
+  padding: 0.15em 0.4em;
   border: 1px solid #e1e4e8;
 }
 
@@ -72,25 +84,25 @@ code {
 pre {
   background: #f6f8fa;
   border-radius: 6px;
-  padding: 1rem 1.2rem;
+  padding: 1.1rem 1.3rem;
   overflow-x: auto;
   border: 1px solid #d0d7de;
   line-height: 1.6;
-  position: relative;
+  margin: 1.2rem 0;
 }
 
 pre code {
   background: none;
-  padding: 0;
   border: none;
+  padding: 0;
 }
 
 /* ========================================
    Blockquotes
    ======================================== */
 blockquote {
-  margin: 1.2em 0;
-  padding: 0.8em 1em;
+  margin: 1.3em 0;
+  padding: 0.9em 1.1em;
   border-left: 4px solid #d0d7de;
   color: #57606a;
   background: #f9fafb;
@@ -98,7 +110,7 @@ blockquote {
 }
 
 /* ========================================
-   Badges (e.g., shields.io)
+   Badges
    ======================================== */
 a img[alt*="badge"],
 a img[alt*="Badge"] {
@@ -120,6 +132,7 @@ ol {
    ======================================== */
 a {
   color: #0969da;
+  text-decoration: none;
 }
 
 a:hover {
@@ -134,11 +147,12 @@ a:hover {
     font-size: 16px;
   }
 
-  .wrapper {
+  .wrapper,
+  .main-container {
     padding: 1rem;
   }
 
   .mermaid {
-    padding: 0.5rem;
+    padding: 0.6rem;
   }
 }

@@ -1,111 +1,208 @@
 ---
-title: "Chapter 1 Overview"
+title: "Chapter 1 Overview — AITL Control Architecture"
 layout: default
-nav_order: 1
-parent: "AITL Documentation"
-description: "Full conceptual overview of the AITL Python baseline model"
+nav_order: 2
+description: "Conceptual overview of the AITL three-layer hybrid control architecture: PID × FSM × LLM"
 ---
 
-# Chapter 1 — Overview  
-*Complete conceptual foundation of the AITL Python Baseline Model*
+# 🧭 Chapter 1 Overview  
+## *Conceptual Foundation of the AITL Hybrid Control Architecture*
 
--------------------------------------------------------------
+This document provides a high-level overview of the AITL control architecture implemented in Chapter 1.  
+It explains **why the system is designed as a three-layer structure**, how each layer interacts, and how this Python model aligns with the broader *AITL Silicon Pathway* (Python → Verilog → OpenLane → SPICE).
 
-## Purpose of Chapter 1
-This chapter establishes the baseline mathematical and architectural model of the AITL system:
-a three-layer control architecture designed for hybrid intelligence systems that must operate
-both in real-time (PID/FSM) and high-level autonomy (LLM).
+Chapter 1 establishes the **behavioral reference model**, which all downstream hardware implementations must replicate.
 
-This Python model serves as:
-- reference implementation for hardware chapters  
-- behavioral “golden model”  
-- formal specification for FSM → RTL  
-- educational bridge between software and silicon  
+---
 
--------------------------------------------------------------
+# 🎯 Purpose of This Chapter
 
-## What Is AITL?
-AITL = Adaptive Intelligent Three-Layer architecture
+The objectives of this chapter are:
 
-Layers:
-1. PID – Real-time low-level numeric control  
-2. FSM – Supervisory mode/state management  
-3. LLM – High-level reasoning, adaptation, redesign  
+- To define the supervisory structure of the AITL architecture  
+- To establish **canonical behavior** for PID, FSM, and LLM layers  
+- To create a Python baseline model that becomes the **ground truth** for RTL conversion  
+- To provide simulation tools (step response, fault handling) for verifying correctness  
+- To prepare a clean, deterministic specification for hardware design
 
-Only PID + FSM are implemented in Chapter 1.
+This chapter does **not** optimize control performance or add real intelligence to the LLM layer—its purpose is to define **stable, portable behavior**.
 
--------------------------------------------------------------
+---
 
-## Layer Architecture
+# 🧱 The Three-Layer AITL Architecture
 
-### PID Layer
-Classical control law:
+The AITL architecture combines:
 
-    u = Kp * e + Ki * integral(e) + Kd * derivative(e)
+1. **PID Layer** — continuous control  
+2. **FSM Layer** — discrete supervisory logic  
+3. **LLM Layer** — adaptive intelligence (future expansion)
 
-Discrete-time version implemented in Python.
+Together they provide a hybrid system capable of robust real-time control and high-level reasoning.
 
-### FSM Layer
-Supervisory control with states:
+---
 
-    IDLE → STARTUP → RUN → FAULT → IDLE
+## 1️⃣ PID Layer — Real-Time Continuous Control
 
-Transitions depend on:
-- user commands  
-- completion flags  
-- error detection  
+The PID controller generates the control output:
 
-### LLM Layer (placeholder)
-Future responsibilities:
-- tuning PID  
-- rewriting FSM  
-- evaluating system health  
-- predictive optimization  
+- Based on setpoint and measurement  
+- With proportional, integral, and derivative contributions  
+- At fixed discrete time steps (`dt`)  
 
--------------------------------------------------------------
+**Key properties defined in Chapter 1:**
 
-## Relationship to the AITL Silicon Pathway
+- The PID operates **only** in `STARTUP` and `RUN` states  
+- Its internal integral and derivative memory must persist across steps  
+- Reset behavior is managed by FSM transitions  
+- The control output becomes zero in `IDLE` and `FAULT` states  
 
-This chapter is the first step of the end-to-end hardware education pipeline:
+These behaviors must be preserved exactly during RTL conversion.
 
-Python → Verilog (RTL) → OpenLane → GDSII → Magic RC Extraction → SPICE
+---
 
-The behaviors defined here *must be preserved* in all downstream flows.
+## 2️⃣ FSM Layer — Supervisory Discrete Logic
 
--------------------------------------------------------------
+The FSM defines discrete operational modes:
 
-## Deliverables of Chapter 1
-- Full Python model (`src/`)
-- Simulation harness (`sim/`)
-- Plots (step response, fault scenario)
-- Formal FSM specification
-- API contract for RTL design
+| State | Purpose |
+|-------|---------|
+| **IDLE** | Base state; system inactive; PID disabled |
+| **STARTUP** | Initialization phase; ramp-up; transitions to RUN only when conditions met |
+| **RUN** | Normal control operation; PID active |
+| **FAULT** | Error detected; system halts until reset |
 
--------------------------------------------------------------
+### Key State Transition Rules
 
-## Role in Chapter 2 (FSM → RTL)
-This chapter provides formal definitions for:
-- states  
-- transitions  
-- conditions  
-- input/output signal semantics  
-- correct behavior of RUN / STARTUP / FAULT  
+- `IDLE → STARTUP` when `start_cmd = True`
+- `STARTUP → RUN` when `startup_done = True`
+- `STARTUP → FAULT` when `error_detected = True`
+- `RUN → FAULT` when `error_detected = True`
+- `FAULT → IDLE` when `reset_cmd = True`
 
-These definitions must be faithfully translated to the RTL.
+These rules form the **canonical transition table**, to be reproduced bit-for-bit in Verilog.
 
--------------------------------------------------------------
+FSM also dictates **when PID is allowed to run**—this distinction ensures RTL has clean enable/disable logic.
 
-## Recommended Reading Order
-1. overview.md  
-2. python_model.md  
-3. fsm.md  
-4. api.md  
-5. getting_started.md  
+---
 
--------------------------------------------------------------
+## 3️⃣ LLM Layer — Adaptive Behavior (Placeholder)
 
-## Summary
-Chapter 1 defines the golden behavioral model.  
-All future hardware chapters must match this behavior exactly.
+In Chapter 1, the LLM layer is a **stub** with no functional intelligence.  
+Its purpose is:
 
--------------------------------------------------------------
+- To define a clean interface for future upgrades  
+- To model how an external reasoning agent could adjust controller parameters  
+- To remain inactive during baseline validation  
+
+This guarantees deterministic behavior for Chapters 2–5.
+
+---
+
+# 🔗 Interaction Between PID, FSM, and LLM Layers
+
+```
+ +-------------+     commands      +-----------------+
+ |   External  | ----------------> |      FSM        |
+ |   System    | <---------------- |  (Supervisory)  |
+ +-------------+   state feedback  +-----------------+
+                                        |
+                                        | enables/disables
+                                        v
+                                +-----------------+
+                                |      PID        |
+                                | (Real-time ctl) |
+                                +-----------------+
+                                        |
+                                        | optional tuning
+                                        v
+                                +-----------------+
+                                |      LLM        |
+                                |   (Adaptive)    |
+                                +-----------------+
+```
+
+### Summary of interactions:
+
+- **FSM** decides *when* PID runs  
+- **PID** produces the control signal  
+- **LLM** may adjust PID parameters (future)  
+- All transitions and timing are explicitly defined  
+
+This clarity is essential for ASIC translation.
+
+---
+
+# 🧪 Simulation Scenarios
+
+Two simulation scenarios are provided for validating correctness:
+
+---
+
+## 📈 1. Step Response Simulation
+
+Tests:
+
+- PID behavior  
+- Stability  
+- Smooth rise to target  
+- Controller enable logic  
+
+This scenario verifies the system’s **basic dynamics**.
+
+---
+
+## ⚠️ 2. Fault Scenario Simulation
+
+Tests:
+
+- FSM transitions  
+- Error handling  
+- PID shutdown behavior  
+- Persistent FAULT state until reset  
+
+This verifies the **supervisory logic** that will be implemented in RTL.
+
+---
+
+# 🏗 Role of Chapter 1 in the AITL Silicon Pathway
+
+Chapter 1 is the **behavioral contract** for everything downstream:
+
+| Stage | Requirement |
+|-------|------------|
+| **Chapter 2 — Verilog RTL** | Must reproduce PID output, internal states, and all FSM transitions by specification |
+| **Chapter 3 — OpenLane** | Physical design must preserve FSM/PID timing behavior |
+| **Chapter 4 — Magic** | Extracted RC parasitics must not change logical equivalence |
+| **Chapter 5 — SPICE** | Waveforms must match Python baseline characteristics |
+
+If Chapter 1 is wrong or ambiguous, **all downstream hardware would be wrong**.
+
+Thus, correctness here is critical.
+
+---
+
+# 📦 Deliverables of Chapter 1
+
+This chapter produces:
+
+- Fully operational Python controller model  
+- Deterministic FSM definition  
+- Clean directory structure for hardware flow  
+- Repeatable simulation results  
+- Documentation for developers and hardware engineers  
+
+Together, these serve as the **official baseline specification**.
+
+---
+
+# 🚀 Next
+
+Continue to:
+
+👉 **python_model.md** — Code-level explanation of the Python implementation  
+👉 **fsm.md** — Formal state transition rules and canonical table (RTL input)
+
+---
+
+# © AITL Silicon Pathway Project
+

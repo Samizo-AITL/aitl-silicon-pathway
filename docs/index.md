@@ -30,7 +30,7 @@ an end-to-end educational and engineering pipeline connecting:
 | [Chapter 2 — RTL Specification](chapter2/index.md) | FSM → Verilog RTL |
 | [Chapter 3 — Physical Design](chapter3/index.md) | OpenLane |
 | [Chapter 4 — RC Extraction / SPICE](chapter4/index.md) | Formal & Structural Guarantees for FSM Correctness |
-| Chapter 5 — System Integration | *(Coming soon — folder created)* |
+| [Chapter 5 — System Integration](chapter5/index.md)  | From FSM Correctness to Executable Verification |
 
 ---
 

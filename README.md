@@ -54,11 +54,11 @@ Each chapter has its own documentation and code structure.
 
 | Chapter | Description | Documentation | Source Code |
 |--------|-------------|---------------|--------------|
-| **Chapter 1** | Python Baseline Model (PID × FSM × LLM) | [docs/chapter1](docs/chapter1/index.md) | [`chapter1_python_model`](chapter1_python_model) |
-| **Chapter 2** | FSM → Verilog RTL | [docs/chapter2](docs/chapter2/index.md) |*none*  | 
-| **Chapter 3** | OpenLane Physical Design | [docs/chapter3](docs/chapter3/index.md)| *none* |
-| **Chapter 4** | Magic RC Extraction / SPICE | [docs/chapter4](docs/chapter4/index.md)| *none* |
-| **Chapter 5** | System-Level Timing & Power Analysis | [docs/chapter5](docs/chapter5/index.md)| *none* |
+| **Chapter 1** | Python Baseline FSM Model (PID × FSM × LLM reference) | [docs/chapter1](docs/chapter1/index.md) | [`chapter1_python_model`](chapter1_python_model) |
+| **Chapter 2** | Formal FSM Specification → Verilog RTL Design | [docs/chapter2](docs/chapter2/index.md) | *none* |
+| **Chapter 3** | RTL Simulation & ASIC-Flow Feasibility (OpenLane, concept level) | [docs/chapter3](docs/chapter3/index.md) | *none* |
+| **Chapter 4** | FSM Formal & Structural Correctness (Invariants, Safety, Equivalence) | [docs/chapter4](docs/chapter4/index.md) | *none* |
+| **Chapter 5** | Executable FSM Verification (Assertions, Simulation, Equivalence Checks) | [docs/chapter5](docs/chapter5/index.md) | *none* |
 
 ---
 

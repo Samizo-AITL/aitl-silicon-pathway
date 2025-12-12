@@ -1,32 +1,23 @@
-# Simulation — Minimal flow for FSM RTL
+---
+layout: default
+title: "Simulation"
+parent: "Chapter 3"
+---
 
-## Philosophy
-We keep the simulation minimal:
-- No UVM
-- No constrained random
-- No full regression infrastructure
+# Simulation — Minimal FSM Verification
 
-But we still enforce:
-- deterministic reset
-- known state coverage for representative sequences
-- at least one “negative test” (invalid input combination) if applicable
+## Purpose
+- Confirm reset behavior
+- Confirm representative state transitions
+- Confirm output behavior
 
-## Minimal tool choices (concept)
-You can simulate with:
+## Tooling (concept)
 - Icarus Verilog (`iverilog`, `vvp`)
-- Verilator (optional concept)
+- GTKWave (optional)
 
-This chapter provides a minimal **Icarus-style** Makefile.
-
-## Directory layout used in this chapter
-- RTL: `code/rtl/fsm_rtl.sv`
-- TB : `code/tb/tb_fsm_min.sv`
-- Sim: `code/sim/Makefile`
-
-## How to run (concept)
-From `docs/chapter3/code/sim/`:
-
-```sh
-make clean
-make run
-make wave
+## Directory
+```text
+code/
+ ├─ rtl/
+ ├─ tb/
+ └─ sim/

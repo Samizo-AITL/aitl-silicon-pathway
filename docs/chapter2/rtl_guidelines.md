@@ -1,4 +1,9 @@
-# File: docs/chapter2/rtl_guidelines.md
+---
+title: "RTL Coding Guidelines for ASIC"
+layout: default
+parent: "Chapter2: FSM to Verilog RTL"
+nav_order: 5
+---
 
 # RTL Coding Guidelines for ASIC and OpenLane  
 ## FSM-Oriented Design Rules

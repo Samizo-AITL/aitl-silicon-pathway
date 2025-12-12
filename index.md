@@ -1,103 +1,90 @@
 ---
 layout: default
-title: aitl-silicon-pathway
+title: Documentation Index
+nav_order: 1
 ---
 
-# **AITL Silicon Pathway**  
-### *AI × Control × Digital Circuits × Semiconductor Education Project*
-
----
-
-## 🔗 Official Links
-
-| Language | GitHub Pages 🌐 | GitHub 💻 |
-|----------|----------------|-----------|
-| 🇺🇸 English | [![GitHub Pages EN](https://img.shields.io/badge/GitHub%20Pages-English-brightgreen?logo=github)](https://samizo-aitl.github.io/aitl-silicon-pathway/) | [![GitHub Repo EN](https://img.shields.io/badge/GitHub-English-blue?logo=github)](https://github.com/Samizo-AITL/aitl-silicon-pathway/tree/main) |
+# 📚 AITL Silicon Pathway — Documentation Index
+Welcome to the official documentation site for **AITL Silicon Pathway**.  
+This page serves as the root index for all chapters, diagrams, and reference materials.
 
 ---
 
-## 📘 **Overview**
+# 🧭 Full System Pathway
 
-**AITL Silicon Pathway** is an educational project that systematically explores how the AITL control architecture  
-(**PID × FSM × LLM**) can be implemented and studied along a complete “pathway to silicon”:
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Samizo-AITL/aitl-silicon-pathway/main/docs/chapter1/images/controller_data_flow.png" width="80%">
+</p>
 
-**Python → Verilog (RTL) → OpenLane → GDSII → SPICE (ngspice)**
+The project explores the complete engineering pipeline:
 
-The objective is to connect control engineering, digital circuit design, semiconductor physical design,  
-and AI-driven modeling into one coherent learning framework.
-
----
-
-## 📚 **Chapter Structure**
-
-### **Chapter 1: AITL Control Architecture in Python**  
-Implement the three-layer AITL architecture—PID, FSM, and LLM—in Python to build a foundation for hybrid control systems.
-
-### **Chapter 2: RTL Conversion of the FSM (Verilog)**  
-Translate the Python-based FSM into synthesizable Verilog RTL and learn practical principles of hardware state machine design.
-
-### **Chapter 3: From RTL to ASIC (OpenLane)**  
-Use OpenLane for logic synthesis, floorplanning, placement & routing, and generate a GDSII layout suitable for fabrication.
-
-### **Chapter 4: Layout Extraction (Magic)**  
-Perform parasitic (RC) extraction and generate an extracted SPICE netlist directly from the physical layout.
-
-### **Chapter 5: Waveform & Timing Analysis (ngspice)**  
-Simulate the extracted netlist in ngspice to analyze real physical effects such as delay, waveform behavior, and power consumption.
+**Python → Verilog (RTL) → OpenLane → GDSII → Magic RC Extraction → SPICE Simulation**
 
 ---
 
-## 🚀 **Goals**
+# 📘 Chapter Index
 
-- Understand how a Python control model is realized in silicon  
-- Experience a full digital/ASIC design workflow end-to-end  
-- Deepen system-level understanding of the AITL architecture from a hardware perspective  
-
----
-
-## 📂 **Progress**
-
-- [x] Repository initialized  
-- [ ] Chapter 1 content implementation  
-- [ ] Chapter 2: FSM → Verilog RTL  
-- [ ] Chapter 3: OpenLane workflow  
-- [ ] Chapter 4: Magic parasitic extraction  
-- [ ] Chapter 5: ngspice timing/power analysis  
+| Chapter | GitHub Pages | GitHub Source | Description |
+|--------|--------------|---------------|-------------|
+| **Chapter 1** | [docs/chapter1](./chapter1/index.md) | [/chapter1_python_model](../chapter1_python_model) | Python baseline model (PID × FSM × LLM) |
+| **Chapter 2** | [docs/chapter2](./chapter2/README.md) | *(coming soon)* | RTL design of FSM (Verilog) |
+| **Chapter 3** | [docs/chapter3](./chapter3/README.md) | *(coming soon)* | OpenLane ASIC flow (RTL → GDSII) |
+| **Chapter 4** | [docs/chapter4](./chapter4/README.md) | *(coming soon)* | Magic extraction → SPICE netlist |
+| **Chapter 5** | [docs/chapter5](./chapter5/README.md) | *(coming soon)* | Timing & waveform analysis using ngspice |
 
 ---
 
-## 👤 Author
+# 🧩 AITL Architecture Overview
 
-| 📌 Item | Details |
-|--------|---------|
-| **Name** | Shinichi Samizo |
-| **Education** | M.S. in Electrical and Electronic Engineering, Shinshu University |
-| **Career** | Former Engineer at Seiko Epson Corporation (since 1997) |
-| **Expertise** | Semiconductor devices (logic, memory, high-voltage mixed-signal)<br>Thin-film piezo actuators for inkjet systems<br>PrecisionCore printhead productization, BOM management, ISO training |
-| **Email** | [![Email](https://img.shields.io/badge/Email-shin3t72%40gmail.com-red?style=for-the-badge&logo=gmail)](mailto:shin3t72@gmail.com) |
-| **X (Twitter)** | [![X](https://img.shields.io/badge/X-@shin3t72-black?style=for-the-badge&logo=x)](https://x.com/shin3t72) |
-| **GitHub** | [![GitHub](https://img.shields.io/badge/GitHub-Samizo--AITL-blue?style=for-the-badge&logo=github)](https://github.com/Samizo-AITL) |
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Samizo-AITL/aitl-silicon-pathway/main/docs/chapter1/images/aitl_3layer.png" width="80%">
+</p>
 
----
+The AITL architecture consists of:
 
-## 📄 License
-
-[![Hybrid License](https://img.shields.io/badge/license-Hybrid-blueviolet)](https://samizo-aitl.github.io/SemiDevKit/#-license)
-
-> SemiDevKit adopts a hybrid licensing approach tailored to the nature of each component—source code, text materials, and graphical content.
-
-| 📌 Item | License | Description |
-|--------|---------|-------------|
-| **Source Code** | [**MIT License**](https://opensource.org/licenses/MIT) | Free to use, modify, and redistribute |
-| **Text Materials** | [**CC BY 4.0**](https://creativecommons.org/licenses/by/4.0/) or [**CC BY-SA 4.0**](https://creativecommons.org/licenses/by-sa/4.0/) | Attribution required; share-alike applies for BY-SA |
-| **Figures & Diagrams** | [**CC BY-NC 4.0**](https://creativecommons.org/licenses/by-nc/4.0/) | Non-commercial use only |
-| **External References** | Follow the original license | Cite the original source properly |
+- **PID Layer** — Numerical real-time control  
+- **FSM Layer** — Supervisory logic (canonical model for RTL)  
+- **LLM Layer** — Adaptive meta-controller  
 
 ---
 
-## 💬 Feedback
+# 📄 Detailed Documentation Structure
 
-> Suggestions, improvements, and discussions are welcome via GitHub Discussions.
+docs/
+├─ index.md ← ★ このページ
+├─ chapter1/
+│ ├─ index.md
+│ ├─ overview.md
+│ ├─ python_model.md
+│ ├─ fsm.md
+│ ├─ api.md
+│ ├─ getting_started.md
+│ └─ images/
+│ ├─ aitl_3layer.png
+│ ├─ fsm_state_diagram.png
+│ ├─ controller_data_flow.png
+│ └─ step_response_timeline.png
+├─ chapter2/
+├─ chapter3/
+├─ chapter4/
+├─ chapter5/
+└─ README.md
 
-[![💬 GitHub Discussions](https://img.shields.io/badge/💬%20GitHub-Discussions-brightgreen?logo=github)](https://github.com/Samizo-AITL/aitl-silicon-pathway/discussions)
+
+---
+
+# 🔗 Quick Navigation
+
+- 👉 [Chapter 1 — Python Baseline](./chapter1/index.md)  
+- 👉 [Chapter 2 — FSM to Verilog](./chapter2/README.md)  
+- 👉 [Chapter 3 — OpenLane Flow](./chapter3/README.md)  
+- 👉 [Chapter 4 — Extraction & SPICE](./chapter4/README.md)  
+- 👉 [Chapter 5 — Timing Analysis](./chapter5/README.md)
+
+---
+
+# 📬 Feedback
+
+Discussion & feedback:  
+https://github.com/Samizo-AITL/aitl-silicon-pathway/discussions
 

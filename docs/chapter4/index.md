@@ -8,6 +8,16 @@ parent: "AITL Silicon Pathway"
 # Chapter 4
 ## Formal & Structural Guarantees for FSM Correctness
 
+---
+
+## 🔗 Official Links
+
+| Language | GitHub Pages 🌐 | GitHub 💻 |
+|----------|----------------|-----------|
+| 🇺🇸 English | [![GitHub Pages EN](https://img.shields.io/badge/GitHub%20Pages-English-brightgreen?logo=github)](https://samizo-aitl.github.io/aitl-silicon-pathway/docs/chapter4/) | [![GitHub Repo EN](https://img.shields.io/badge/GitHub-English-blue?logo=github)](https://github.com/Samizo-AITL/aitl-silicon-pathway/tree/main/docs/chapter4) |
+
+---
+
 Chapter 1–3 proved that the FSM **works** (simulation) and is **buildable** (synthesizable / ASIC-flow feasible).
 Chapter 4 moves to the next stage:
 

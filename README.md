@@ -11,6 +11,18 @@
 
 ---
 
+## 🧑‍🚀 Getting Started
+
+If you are new to this project, start here:
+
+1. 📖 **Project Overview** — Read this README
+2. 📘 **Chapter 1 Documentation** — Python Baseline Model  
+   👉 https://samizo-aitl.github.io/aitl-silicon-pathway/docs/chapter1/
+3. 🧠 **Source Code** — Python implementation  
+   👉 https://github.com/Samizo-AITL/aitl-silicon-pathway/tree/main/chapter1_python_model
+
+---
+
 # 🧭 **Project Map — Full Pathway Overview**
 
 This project builds an *end-to-end* education & development pipeline from **Python control model → Silicon**.

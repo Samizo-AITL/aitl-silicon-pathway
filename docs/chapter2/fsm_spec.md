@@ -1,3 +1,10 @@
+---
+title: "Formal FSM Specification"
+layout: default
+parent: "Chapter2: FSM to Verilog RTL"
+nav_order: 2
+---
+
 # Formal FSM Specification  
 ## State, Transition, and Signal Definition
 

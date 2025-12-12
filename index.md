@@ -55,11 +55,11 @@ The project explores the complete engineering pipeline:
 
 | Chapter | GitHub Pages | GitHub Source | Description |
 |--------|--------------|---------------|-------------|
-| **Chapter 1** | [docs/chapter1](/docs/chapter1/index.md) | [/chapter1_python_model](/chapter1_python_model/index.md) | Python baseline model (PID × FSM × LLM) |
-| **Chapter 2** | [docs/chapter2](/docs/chapter2/index.md) |  *none*  | RTL design of FSM (Verilog) |
-| **Chapter 3** | [docs/chapter3](/docs/chapter3/index.md) |  *none*  |  OpenLane ASIC flow (RTL → GDSII) |
-| **Chapter 4** | [docs/chapter4](/docs/chapter4/index.md)  | *none* | Magic extraction → SPICE netlist |
-| **Chapter 5** | [docs/chapter5](/docs/chapter5/index.md)  | *none* | Timing & waveform analysis using ngspice |
+| **Chapter 1** | [docs/chapter1](/docs/chapter1/index.md) | [/chapter1_python_model](/chapter1_python_model/index.md) | Python baseline FSM model (PID × FSM × LLM reference) |
+| **Chapter 2** | [docs/chapter2](/docs/chapter2/index.md) | *none* | Formal FSM specification and Verilog RTL design |
+| **Chapter 3** | [docs/chapter3](/docs/chapter3/index.md) | *none* | RTL simulation and ASIC-flow feasibility check (OpenLane concept level) |
+| **Chapter 4** | [docs/chapter4](/docs/chapter4/index.md) | *none* | Formal and structural correctness of FSM (invariants, safety, equivalence) |
+| **Chapter 5** | [docs/chapter5](/docs/chapter5/index.md) | *none* | Executable verification of FSM correctness (assertions, simulation, equivalence checks) |
 
 ---
 
@@ -124,11 +124,11 @@ docs/
 
 # 🔗 Quick Navigation
 
-- 👉 [Chapter 1 — Python Baseline](/docs/chapter1/index.md)  
-- 👉 [Chapter 2 — FSM to Verilog](/docs/chapter2/index.md)  
-- 👉 [Chapter 3 — OpenLane Flow](/docs/chapter3/index.md)  
-- 👉 [Chapter 4 — Extraction & SPICE](/docs/chapter4/index.md)  
-- 👉 [Chapter 5 — Timing Analysis](/docs/chapter5/index.md)
+- 👉 [Chapter 1 — Python Baseline FSM](/docs/chapter1/index.md)  
+- 👉 [Chapter 2 — FSM Specification & Verilog RTL](/docs/chapter2/index.md)  
+- 👉 [Chapter 3 — Simulation & ASIC Flow Feasibility](/docs/chapter3/index.md)  
+- 👉 [Chapter 4 — FSM Formal Correctness (Invariants & Safety)](/docs/chapter4/index.md)  
+- 👉 [Chapter 5 — Executable Verification & Equivalence Checking](/docs/chapter5/index.md)
 
 ---
 

@@ -1,4 +1,9 @@
-# File: docs/chapter2/mapping_rules.md
+---
+title: "Python to Verilog Mapping Rules"
+layout: default
+parent: "Chapter2: FSM to Verilog RTL"
+nav_order: 3
+---
 
 # Python-to-Verilog FSM Mapping Rules  
 ## Formal Translation from Software to Hardware

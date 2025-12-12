@@ -20,9 +20,15 @@ This page serves as the root index for all chapters, diagrams, and reference mat
 
 # 🧭 Full System Pathway
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Samizo-AITL/aitl-silicon-pathway/main/docs/chapter1/images/controller_data_flow.png" width="80%">
-</p>
+```mermaid
+flowchart LR
+    PY[Python Baseline Model<br/>(AITL Controller)] --> SPEC[FSM Spec<br/>state table, I/O]
+    SPEC --> RTL[Verilog RTL<br/>(FSM + glue logic)]
+    RTL --> OL[OpenLane Flow<br/>synthesis, P&amp;R]
+    OL --> GDS[GDSII Layout]
+    GDS --> MAGIC[Magic<br/>RC extraction]
+    MAGIC --> SPICE[ngspice<br/>timing &amp; waveform analysis]
+```
 
 The project explores the complete engineering pipeline:
 
@@ -44,9 +50,31 @@ The project explores the complete engineering pipeline:
 
 # 🧩 AITL Architecture Overview
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Samizo-AITL/aitl-silicon-pathway/main/docs/chapter1/images/aitl_3layer.png" width="80%">
-</p>
+```mermaid
+flowchart TD
+    SP[Setpoint r(t)] --> E[Error e(t) = r(t) - y(t)]
+    Y[Measured y(t)] --> E
+
+    E --> PID[PID Controller]
+    PID --> U[Control output u(t)]
+    U --> PLANT[Plant / System]
+    PLANT --> Y
+
+    subgraph FSM[Supervisory FSM Layer]
+        MODE[Mode: IDLE / STARTUP / RUN / FAULT]
+    end
+
+    MODE -->|enable / disable| PID
+    PLANT -->|status / fault flags| FSM
+
+    subgraph LLM[LLM Layer (Advisor / Redesign)]
+        LOGS[Logs / Telemetry / History]
+    end
+
+    FSM -->|events &amp; traces| LOGS
+    LOGS -->|retune gains Kp, Ki, Kd| PID
+    LOGS -->|update transition rules| FSM
+```
 
 The AITL architecture consists of:
 
@@ -62,17 +90,17 @@ The AITL architecture consists of:
 docs/
 ├─ index.md 
 ├─ chapter1/
-│ ├─ index.md
-│ ├─ overview.md
-│ ├─ python_model.md
-│ ├─ fsm.md
-│ ├─ api.md
-│ ├─ getting_started.md
-│ └─ images/
-│ ├─ aitl_3layer.png
-│ ├─ fsm_state_diagram.png
-│ ├─ controller_data_flow.png
-│ └─ step_response_timeline.png
+│  ├─ index.md
+│  ├─ overview.md
+│  ├─ python_model.md
+│  ├─ fsm.md
+│  ├─ api.md
+│  ├─ getting_started.md
+│  └─ images/
+│     ├─ aitl_3layer.png
+│     ├─ fsm_state_diagram.png
+│     ├─ controller_data_flow.png
+│     └─ step_response_timeline.png
 ├─ chapter2/
 ├─ chapter3/
 ├─ chapter4/
@@ -124,4 +152,3 @@ docs/
 > Feedback, ideas, and discussions are welcome.
 
 [![💬 GitHub Discussions](https://img.shields.io/badge/💬%20GitHub-Discussions-brightgreen?logo=github)](https://github.com/Samizo-AITL/aitl-silicon-pathway/discussions)
-

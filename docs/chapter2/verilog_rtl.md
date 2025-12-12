@@ -1,4 +1,9 @@
-# File: docs/chapter2/verilog_rtl.md
+---
+title: "FSM Verilog RTL Implementation"
+layout: default
+parent: "Chapter2: FSM to Verilog RTL"
+nav_order: 4
+---
 
 # FSM Verilog RTL  
 ## Skeleton to Complete Implementation

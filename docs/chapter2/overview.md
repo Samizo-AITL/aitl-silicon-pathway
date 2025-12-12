@@ -1,3 +1,10 @@
+---
+title: "Chapter2 Overview"
+layout: default
+parent: "Chapter2: FSM to Verilog RTL"
+nav_order: 1
+---
+
 # Chapter2: FSM → Verilog RTL  
 ## AITL Silicon Pathway
 

@@ -15,6 +15,7 @@
 
 This project builds an *end-to-end* education & development pipeline from **Python control model → Silicon**.
 
+```
 AITL Control Architecture
 │
 ▼
@@ -31,7 +32,7 @@ Magic — RC Extraction → SPICE Netlist (Chapter 4)
 │
 ▼
 ngspice Waveform / Timing / Power Analysis (Chapter 5)
-
+```
 
 ---
 
@@ -80,6 +81,7 @@ This connects:
 
 # 📂 **Repository Structure**
 
+```
 aitl-silicon-pathway/
 ├─ chapter1_python_model/ # Python implementation of AITL baseline
 │ ├─ src/ # PID, FSM, Controller code
@@ -96,7 +98,7 @@ aitl-silicon-pathway/
 │
 ├─ assets/ # Shared images, CSS, includes
 └─ README.md # (this file)
-
+```
 
 ---
 

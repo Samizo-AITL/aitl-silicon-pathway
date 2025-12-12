@@ -1,5 +1,15 @@
 # Chapter 4 — Notes
 
+---
+
+## 🔗 Official Links
+
+| Language | GitHub Pages 🌐 | GitHub 💻 |
+|----------|----------------|-----------|
+| 🇺🇸 English | [![GitHub Pages EN](https://img.shields.io/badge/GitHub%20Pages-English-brightgreen?logo=github)](https://samizo-aitl.github.io/aitl-silicon-pathway/docs/chapter4/) | [![GitHub Repo EN](https://img.shields.io/badge/GitHub-English-blue?logo=github)](https://github.com/Samizo-AITL/aitl-silicon-pathway/tree/main/docs/chapter4) |
+
+---
+
 - This chapter is **spec-first**:
   - *Philosophy → Definitions → Verification Viewpoints → Results*
 - All properties are written in **human-readable form** first.

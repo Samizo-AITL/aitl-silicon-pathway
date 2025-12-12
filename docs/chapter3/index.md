@@ -10,6 +10,16 @@ parent: "AITL Silicon Pathway"
 
 This chapter verifies that the FSM RTL designed in Chapter 2 is **hardware-realistic**.
 
+---
+
+## 🔗 Official Links
+
+| Language | GitHub Pages 🌐 | GitHub 💻 |
+|----------|----------------|-----------|
+| 🇺🇸 English | [![GitHub Pages EN](https://img.shields.io/badge/GitHub%20Pages-English-brightgreen?logo=github)](https://samizo-aitl.github.io/aitl-silicon-pathway/docs/chapter3/) | [![GitHub Repo EN](https://img.shields.io/badge/GitHub-English-blue?logo=github)](https://github.com/Samizo-AITL/aitl-silicon-pathway/tree/main/docs/chapter3) |
+
+---
+
 ### Goals
 - Verify FSM RTL behavior by simulation
 - Confirm synthesizability via OpenLane (concept level)

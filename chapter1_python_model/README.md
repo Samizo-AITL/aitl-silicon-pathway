@@ -9,6 +9,14 @@ This serves as the *behavioral golden model* for all downstream hardware design 
 
 ---
 
+## 🔗 Official Links
+
+| Language | GitHub Pages 🌐 | GitHub 💻 |
+|----------|----------------|-----------|
+| 🇺🇸 English | [![GitHub Pages EN](https://img.shields.io/badge/GitHub%20Pages-English-brightgreen?logo=github)](https://samizo-aitl.github.io/aitl-silicon-pathway/chapter1_python_model/) | [![GitHub Repo EN](https://img.shields.io/badge/GitHub-English-blue?logo=github)](https://github.com/Samizo-AITL/aitl-silicon-pathway/tree/main/chapter1_python_model) |
+
+---
+
 # 📂 Directory Structure
 
 ```
